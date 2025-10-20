@@ -10,14 +10,19 @@ const leftColumn = document.getElementById("left-column");
   
                <nav id="navigation" class="bg-yellow-200 p-2 rounded lg:col-span-1">
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Create An Account </button>
-                    <form class="w-full p-2 bg-white rounded mb-2 text-left" id="logoutB"> 
-                    <div class="block p-1 rounded"> Email: </div>
-                     <input  class="border p-1 rounded" label="email"> </input>
+                    
+         
+                    <form class="w-full p-2 bg-white rounded mb-2 text-left" id="loginForm"> 
 
+                                                   <div class="block px-1 rounded"> Email: </div>
+                    <input  class="border p-1 rounded" label="email"> </input>
+                    <div class="block px-1 rounded"> Password: </div>
+                    <input  class="border p-1 rounded" label="password"> </input>
 
-                     <button onclick="addForm()" class=" block border px-1 rounded mt-1"> submit</button>
+                     <button onclick="runLogin()" class=" block border px-1 rounded mt-1"> submit</button>
                     
                     </form>
+
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Login </button>
 
                     <button class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="logoutB"> Logout </button>
