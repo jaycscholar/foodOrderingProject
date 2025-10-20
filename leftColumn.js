@@ -10,7 +10,16 @@ const leftColumn = document.getElementById("left-column");
   
                <nav id="navigation" class="bg-yellow-200 p-2 rounded lg:col-span-1">
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Create An Account </button>
+                    <form class="w-full p-2 bg-white rounded mb-2 text-left" id="logoutB"> 
+                    <div class="block p-1 rounded"> Email: </div>
+                     <input  class="border p-1 rounded" label="email"> </input>
+
+
+                     <button onclick="addForm()" class=" block border px-1 rounded mt-1"> submit</button>
+                    
+                    </form>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Login </button>
+
                     <button class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="logoutB"> Logout </button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> View My Tray <div id="trayQ"
                               class="inline">(x)</div></button>

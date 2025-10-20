@@ -8,10 +8,10 @@
  
 let menuItems = ['fry', 'coin', 'sock', 'pie','rock', 'guitar','star']
 
-menuItems.forEach((fruit) => {
+menuItems.forEach((food) => {
 const menuItem = document.createElement("div");
 menuItem.className = `col-span-3 lg:col-span-1 h-52 p-3 bg-blue-100` 
-menuItem.innerHTML = ` ${fruit} 
+menuItem.innerHTML = ` ${food} 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
