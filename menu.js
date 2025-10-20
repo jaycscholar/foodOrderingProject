@@ -16,7 +16,9 @@ menuItem.innerHTML = ` ${food}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam, quis nostrud exercitation 
-<button>Add Item </button>
+<input type="number" min="1" max="3" placeholder="1" class="inline" id='${food}' ></input>
+<button class= "border border-color-red px-2 inline" >Add  </button> 
+
 `
 
      theMenu.appendChild(menuItem)  
