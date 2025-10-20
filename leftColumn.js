@@ -15,21 +15,7 @@ const leftColumn = document.getElementById("left-column");
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Create An Account </button>
                     
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" id="loginButton" onclick="addLogin()"> Login </button>
-
-
-
-                    <!-- make this hidden -->  
-                    <form class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="loginForm" > 
- 
-                    <label class="block px-1 rounded" for="email"> Email: </label>
-                    <input  class="border p-1 rounded" name="email" type="email" id="email" > </input>
-                    <label class="block px-1 rounded" for="password"> Password: </label>
-                    <input  class="border p-1 rounded" type="password" id="password"> </input>
-                    <button id="submitButton" type="button" onclick="runLogin()" class=" block border px-1 rounded mt-1"> 
-                    submit</button>    
-                    </form>
-
-
+                    ${formContentHTML}
                     <button class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="logoutB"> Logout </button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> View My Tray <div id="trayQ"
                               class="inline">(x)</div></button>

@@ -1,4 +1,17 @@
 //I should bring Form HTML Here
+let formContentHTML =
+
+`
+                    <form class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="loginForm" > 
+ 
+                    <label class="block px-1 rounded" for="email"> Email: </label>
+                    <input  class="border p-1 rounded" name="email" type="email" id="email" > </input>
+                    <label class="block px-1 rounded" for="password" autocomplete="current-password"> Password: </label>
+                    <input  class="border p-1 rounded" name="password" type="password" id="password"> </input>
+                    <button id="submitButton" type="button" onclick="runLogin()" class=" block border px-1 rounded mt-1"> 
+                    submit</button>    
+                    </form>
+`;
 
 //addLogin()
 
@@ -15,8 +28,28 @@ loginF.className = toShow;
 
 
 function runLogin() {
-const email = document.getElementById('email')    
-alert(email.value)
+const email = document.getElementById('email') 
+const psw = document.getElementById('password') 
+
+
+
+
+if (email.value === "fake@email.com" ){ 
+     if (psw.value === "cat") {
+     alert ("logged in")
+
+
+
+     }else if (psw.value !== "cat"){
+          alert("check password (hint: its 'cat')")
+
+     }
+}
+else if (email.value !== "fake@email.com" ){
+alert("bad email")
+
+
+}
 
 } 
 
