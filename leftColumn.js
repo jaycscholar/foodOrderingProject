@@ -2,7 +2,7 @@ const leftColumn = document.getElementById("left-column");
                console.log(leftColumn)
 
                leftColumn.innerHTML =
-                    `
+               `
 
 <button id="show menu button" class="bg-green-200 p-2 rounded block lg:hidden w-full" onclick="hideNavItems()">
                     Show options ---
@@ -17,8 +17,10 @@ const leftColumn = document.getElementById("left-column");
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" id="loginButton" onclick="addLogin()"> Login </button>
                     ${formContentHTML}
                     <button class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="logoutB"> Logout </button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left"> View My Tray <div id="trayQ"
-                              class="inline">(x)</div></button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left"> View My Tray 
+                    (<div id="trayQ" class="inline">x</div>)
+                    </button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="clearTray()"> Clear My Tray</button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Track My order</button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> About</button>
                </nav>
@@ -68,11 +70,22 @@ console.log("items shown");
                          
                     }
 
-
                } 
 
 
 
+function clearTray () {
+
+     storedItems = 0;
+localStorage.clear();
+     console.log(localStorage.getItem("itemAmount"));
+
+     updatetrayAmount();
+
+}
 
 
-               
+
+
+// gonna need this
+// localStorage.removeItem('yourKeyName');
