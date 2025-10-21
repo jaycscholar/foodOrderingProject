@@ -78,7 +78,7 @@ console.log("stored " + food['name'] +" " + retrievedCart);
 
 
                const menuItem = document.createElement("div");
-               menuItem.className = `col-span-3 lg:col-span-1 lg:h-72 p-3 bg-blue-100`
+               menuItem.className = `col-span-3 lg:col-span-1  p-3 bg-blue-100`
 
                menuItem.id = food['name'];
                menuItem.innerHTML = ` 
@@ -86,16 +86,16 @@ console.log("stored " + food['name'] +" " + retrievedCart);
                      ${food['name']} 
                      </h3>
 
-                     <section class="grid grid-cols-5"> 
-                     <p class="lg:h-40 overflow-y-auto col-span-3"> 
+                                          <img class="max-h-50 lg:max-h-70 mx-auto" src="${food['image']}">
+                     <section class=""> 
+                     <p class=" overflow-y-auto"> 
                      ${food['description']}  
-                     
-                     
 
+          
                      
                      </p>
                      
-                     <p class=" col-span-2 h-20  lg:h-40"><img  src="${food['image']}"><p>
+                     
                       </section>
 
 <form class=""> 
