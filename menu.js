@@ -87,7 +87,7 @@ console.log("stored " + food['name'] +" " + retrievedCart);
                      </h3>
 
                                           <img class="max-h-50 lg:max-h-70 mx-auto" src="${food['image']}">
-                     <section class=""> 
+                     <section class="lg:h-30"> 
                      <p class=" overflow-y-auto"> 
                      ${food['description']}  
 
@@ -98,8 +98,8 @@ console.log("stored " + food['name'] +" " + retrievedCart);
                      
                       </section>
 
-<form class=""> 
-<input type="number" min="1" max="99" value="1" class="inline" id='${food['name']}Amount' ></input>
+<form class="relative bottom-0 left-0 right-0"> ${food['price']}
+<input type="number" min="1" max="99" value="1" class="inline text-right" id='${food['name']}Amount' ></input>
 <button type='button' class= "border border-color-red px-2 inline" onclick = "addItem('${food['name']}')">Add</button> 
 </form>
 

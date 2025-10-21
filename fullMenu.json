@@ -24,11 +24,11 @@
 },
 
 {
-"id" : 3,
-"name" : "Quesadillas",
-"description" : "2 Flour Cheese Quesadillas.  Hmm yum",
-"price" : "$10.99",
-"image" : "foodImages/quesadillas.jpg"
+"id" : 4,
+"name" : "Cake",
+"description" : "A slice of cake",
+"price" : "$5.99",
+"image" : "foodImages/cake.jpg"
 }
 
 
