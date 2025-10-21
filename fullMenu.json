@@ -2,10 +2,36 @@
 {
 "id" : 1,
 "name" : "Tacos",
-"description" : "5 Traditional Street style Beef tacos. Garnished with salsa, chopped onion and cilantro. Hmm yum",
+"description" : "5 Traditional Street style Beef tacos. Garnished with salsa, chopped onion and cilantro. \n Hmm yum",
 "price" : "$7.99",
 "image" : "foodImages/streettacos.jpg"
+},
+
+{
+"id" : 2,
+"name" : "Enchiladas",
+"description" : "4 Traditional Enchiladas. Stuffed with Cheese. Garnished with chopped cabbage, chopped onion and cheese. Include side of beans and rice. \n Hmm yum ",
+"price" : "$12.99",
+"image" : "foodImages/enchiladas.jpg"
+},
+
+{
+"id" : 3,
+"name" : "Quesadillas",
+"description" : "2 Flour Cheese Quesadillas.  Hmm yum",
+"price" : "$10.99",
+"image" : "foodImages/quesadillas.jpg"
+},
+
+{
+"id" : 3,
+"name" : "Quesadillas",
+"description" : "2 Flour Cheese Quesadillas.  Hmm yum",
+"price" : "$10.99",
+"image" : "foodImages/quesadillas.jpg"
 }
+
+
 
 
 ]
