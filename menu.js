@@ -6,10 +6,11 @@ let storedItems = localStorage.getItem("itemAmount")
 if (storedItems === null) { storedItems = 0 }
 
 
-const retrievedCart = localStorage.getItem("itemsInCart")
-let itemsInCartArray = []
 
-console.log(itemsInCartArray);
+
+let itemsInCartArray = { }
+
+
 
 addMenu();
 
@@ -20,6 +21,9 @@ function addMenu() {
 
 
      menuItems.forEach((food) => {
+
+
+
           const menuItem = document.createElement("div");
           menuItem.className = `col-span-3 lg:col-span-1 h-52 p-3 bg-blue-100`
           menuItem.innerHTML = ` ${food} 
@@ -32,7 +36,6 @@ Ut enim ad minim veniam, quis nostrud exercitation
 <button type='button' class= "border border-color-red px-2 inline" >Add  </button> 
 </form>
 `
-
           theMenu.appendChild(menuItem)
      })
 
@@ -56,20 +59,46 @@ async function fetchAndDisplayMenu() {
           console.log(menuItems)
 
           menuItems.forEach((food) => {
+
+
+let itemNumberInTray = localStorage.getItem(food['name']) 
+
+if (itemNumberInTray === null){
+storedItems = 0;
+localStorage.setItem(food['name'], 0)
+}
+
+
+
+
+let retrievedCart = localStorage.getItem(food['name']);
+
+
+console.log("stored " + food['name'] +" " + retrievedCart);
+
+
                const menuItem = document.createElement("div");
-               menuItem.className = `col-span-3 lg:col-span-1 h-60 p-3 bg-blue-100`
+               menuItem.className = `col-span-3 lg:col-span-1 lg:h-72 p-3 bg-blue-100`
 
                menuItem.id = food['name'];
                menuItem.innerHTML = ` 
-                     <h3 class="text-2xl">
+                     <h3 class="text-2xl mb-2">
                      ${food['name']} 
                      </h3>
 
-                     <p class="h-38 overflow-y-auto"> 
-                     ${food['description']}    
-                     </p>                  
+                     <section class="grid grid-cols-5"> 
+                     <p class="lg:h-40 overflow-y-auto col-span-3"> 
+                     ${food['description']}  
                      
-<form> 
+                     
+
+                     
+                     </p>
+                     
+                     <p class=" col-span-2 h-20  lg:h-40"><img  src="${food['image']}"><p>
+                      </section>
+
+<form class=""> 
 <input type="number" min="1" max="99" value="1" class="inline" id='${food['name']}Amount' ></input>
 <button type='button' class= "border border-color-red px-2 inline" onclick = "addItem('${food['name']}')">Add</button> 
 </form>
@@ -88,19 +117,19 @@ async function fetchAndDisplayMenu() {
 }
 
 function addItem(foodAdd) {
-
-
-
-
-console.log(itemsInCartArray);
  //just for the number in the cart (probably should have just done the array, but I did the number first)
-     let numberofItems = 0
-     const item = foodAdd
+     let numberofItems = 0;
+     const item = foodAdd;
      const itemAmountID = foodAdd + 'Amount';
 
      const itemAmount = document.getElementById(itemAmountID);
 
+
+
      numberofItems = itemAmount.value
+
+     itemAmount.value = 1;
+     //set value back to 1
 
      storedItems = +storedItems;
      storedItems += +numberofItems;
@@ -113,7 +142,18 @@ console.log(itemsInCartArray);
 
      updatetrayAmount();
 
+let retrievedStoredItem = localStorage.getItem(item)
 
+     itemsInCartArray[item] = +retrievedStoredItem + +numberofItems;
+
+     let addtoCartItemNumber = +retrievedStoredItem + +numberofItems
+
+     localStorage.setItem(item, addtoCartItemNumber);
+
+     let retrievedCart = localStorage.getItem(item)
+
+console.log(retrievedCart)
+console.log(itemsInCartArray)
 
 
 }
@@ -125,5 +165,7 @@ updatetrayAmount();
 function updatetrayAmount() {
      let trayAmount = document.getElementById("trayQ")
      trayAmount.innerHTML = storedItems;
+
+         
 
 }

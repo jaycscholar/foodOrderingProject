@@ -1,5 +1,5 @@
 const leftColumn = document.getElementById("left-column");
-               console.log(leftColumn)
+
 
                leftColumn.innerHTML =
                `
@@ -81,6 +81,8 @@ localStorage.clear();
      console.log(localStorage.getItem("itemAmount"));
 
      updatetrayAmount();
+
+      itemsInCartArray = []
 
 }
 
