@@ -58,7 +58,10 @@ Cost ${food["price"]} X ${itemNumberInTray}
       }
     });
   } catch (error) {
-    alert("Error fetching user data with async/await:", error);
+    const errorLog = document.createElement("div");
+    errorLog.innerHTML = `<p class="text-2xl my-12"> Uh oh, there's a problem </p> <p class="text-2xl mb-20"> ${error} </p>`
+    theTray.appendChild(errorLog)
+    //alert("Error fetching user data with async/await:", error);
   }
 
   if (isTrayFull) {
@@ -67,12 +70,52 @@ Cost ${food["price"]} X ${itemNumberInTray}
 <p> Total = ${theTotal.toFixed(2)}
 </p>
 
-<p>
-<button class="border rounded my-2 p-1" onclick="placeOrder()"> Place Order  
+<form class="mt-10 grid lg:grid-cols-3">
+<h3 class="text-xl lg:col-span-3"> Enter Your Info: </h3>
+
+<div class="p-2 my-1"> 
+<label for="firstName">First Name:</label>
+<input class="border border-gray-400 rounded ml-2" type="text" id="firstName" name="first_name" autocomplete="firstName" required>
+</div>
+
+<div class="p-2 my-1"> 
+<label for="lastName">Last Name:</label>
+<input class="border border-gray-400 rounded ml-2" type="text" id="lastName" name="last_name" autocomplete="lastName" required>
+</div>
+
+<div class="p-2 my-1"> 
+<label for="address">Address:</label>
+<input class="border border-gray-400 rounded ml-2" class="border border-gray-400 rounded ml-2" type="text" id="address" name="address" autocomplete="address" required>
+</div>
+
+<div class="p-2 my-1"> 
+<label for="city">City:</label>
+<input class="border border-gray-400 rounded ml-2" type="text" id="city" name="city" autocomplete="city" required>
+</div>
+
+<div class="p-2 my-1"> 
+<label for="zip">Zip Code:</label>
+<input class="border border-gray-400 rounded ml-2" type="text" id="zip" name="zip" autocomplete="zip_Code" required>
+</div>
+
+<div class="p-2 my-1"> 
+<label for="state">State:</label>
+<input class="border border-gray-400 rounded ml-2" type="text" id="state" name="state" autocomplete="state" required>
+</div>
+
+
+<button type="button" class="border rounded my-2 p-1" onclick="placeOrder()"> Place Order  
 </button>
-</p>
+
+</form>
+
+
+
 `;
     theTray.appendChild(itemInCart);
+
+
+
   } else if (!isTrayFull) {
     let itemInCart = document.createElement("menuItem");
     itemInCart.innerHTML = `
@@ -85,10 +128,47 @@ Or click on <a href="trackOrder.html">Track My Order<a> to see your order status
 
 `;
     theTray.appendChild(itemInCart);
+
+    
+
+
   }
+
+
+  if (logInJoe === 'true'){
+    
+document.getElementById("firstName").value = 'Joe'
+document.getElementById("lastName").value = 'User'
+document.getElementById("address").value = '3333 Blue River'
+document.getElementById("city").value = 'Big Sur' 
+document.getElementById("zip").value = '9000' 
+document.getElementById("state").value = 'California'
+
+} 
+  
 }
 
+
+
+
+
+
+
 function placeOrder() {
-  alert("Your Order has been placed");
-  clearTray();
+
+  let customerInfo = []
+
+  customerInfo.push({"firstName" : document.getElementById("firstName").value})
+  customerInfo.push({"lastName" : document.getElementById("lastName").value})
+  customerInfo.push({"address" : document.getElementById("address").value})
+  customerInfo.push({"city" : document.getElementById("city").value})
+  customerInfo.push({"zip" : document.getElementById("zip").value})
+  customerInfo.push({"state" : document.getElementById("state").value})
+
+  console.log(customerInfo)
+
+ alert("Your Order has been placed");
+ clearTray();
 }
+
+

@@ -12,7 +12,7 @@ const leftColumn = document.getElementById("left-column");
                                  
   
                <nav id="navigation" class="p-2 rounded lg:col-span-1 bg-gray-200">
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left"> Create An Account </button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left hidden"> Create An Account </button>
                     
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" id="loginButton" onclick="addLogin()"> Login </button>
                     ${formContentHTML}
@@ -22,9 +22,12 @@ const leftColumn = document.getElementById("left-column");
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='viewTray.html'"> View My Tray 
                     (<div id="trayQ" class="inline">x</div>) <br> and Place order
                     </button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="clearTray()"> Clear My Tray</button>
+                    <button class="w-full p- bg-white rounded mb-2 text-center" onclick="clearTray()">Clear My Tray</button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='trackOrder.html'"> Track My order</button>
-               </nav>
+             
+                </nav>
+ 
+                 <button class=" px-2 bg-gray-100 rounded my-4 text-left">Admin Login </button>
 
 `
 
@@ -76,16 +79,19 @@ console.log("items shown");
 
 
 function clearTray () {
+let loggedInState = localStorage.getItem('loggedInJoe') 
+//kind of cheating with this
 
      storedItems = 0;
 localStorage.clear();
-     console.log(localStorage.getItem("itemAmount"));
 
      updatetrayAmount();
 
          window.location.reload();
 
       itemsInCartArray = []
+
+      localStorage.setItem('loggedInJoe', loggedInState)    
 
 }
 

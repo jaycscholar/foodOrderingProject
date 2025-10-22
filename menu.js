@@ -187,3 +187,13 @@ function updatetrayAmount() {
 
 
 }
+
+
+let logInJoe = localStorage.getItem('loggedInJoe') 
+
+console.log("logged " + logInJoe)
+if (logInJoe === 'true'){
+          
+     loggedIn()
+
+} 

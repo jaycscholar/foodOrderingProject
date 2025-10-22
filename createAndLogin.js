@@ -1,4 +1,5 @@
-//I should bring Form HTML Here
+
+
 let formContentHTML =
 
 `
@@ -27,6 +28,22 @@ loginF.className = toShow;
 }
 
 
+function loggedIn(){
+     document.getElementById('loginButton').className = `hidden`
+     document.getElementById('loginForm').className = `w-full p-2 bg-white rounded mb-2 text-left`
+     document.getElementById('loginForm').innerHTML = `
+     Logged In as Joe User
+     <button class="border border-gray-300 px-2" onclick="logOut()">Log Out</button>
+     `
+
+
+} 
+
+function logOut(){
+     localStorage.setItem('loggedInJoe', false)
+      
+}
+
 function runLogin() {
 const email = document.getElementById('email') 
 const psw = document.getElementById('password') 
@@ -34,9 +51,15 @@ const psw = document.getElementById('password')
 
 
 
+
 if (email.value === "fake@email.com" ){ 
      if (psw.value === "cat") {
-     alert ("logged in")
+    
+      localStorage.setItem('loggedInJoe', true)         
+      loggedIn()    
+
+
+     //alert ("logged in")
 
 
 
