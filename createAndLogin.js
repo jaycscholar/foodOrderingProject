@@ -46,7 +46,7 @@ if (email.value === "fake@email.com" ){
      }
 }
 else if (email.value !== "fake@email.com" ){
-alert("bad email")
+alert("Hint: fake@email.com")
 
 
 }

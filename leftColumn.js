@@ -17,8 +17,10 @@ const leftColumn = document.getElementById("left-column");
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" id="loginButton" onclick="addLogin()"> Login </button>
                     ${formContentHTML}
                     <button class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="logoutB"> Logout </button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left"> View My Tray 
-                    (<div id="trayQ" class="inline">x</div>)
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='index.html'"><b>View Menu</b></button>
+
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='viewTray.html'"> View My Tray 
+                    (<div id="trayQ" class="inline">x</div>) <br> and Place order
                     </button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="clearTray()"> Clear My Tray</button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Track My order</button>

@@ -12,7 +12,7 @@ let itemsInCartArray = { }
 
 
 
-addMenu();
+
 
 function addMenu() {
 
