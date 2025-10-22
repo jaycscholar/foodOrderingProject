@@ -72,7 +72,7 @@ async function fetchAndDisplayMenu() {
                let retrievedCart = localStorage.getItem(food['name']);
 
 
-               console.log("stored " + food['name'] + " " + retrievedCart);
+               //console.log("stored " + food['name'] + " " + retrievedCart);
 
 
                const menuItem = document.createElement("div");
@@ -85,7 +85,7 @@ async function fetchAndDisplayMenu() {
                      </h3>
 
                                           <img class="max-h-50 lg:max-h-70 mx-auto" src="${food['image']}">
-                     <section class="lg:h-30"> 
+                     <section class="lg:h-36"> 
                      <p class=" overflow-y-auto"> 
                      ${food['description']}  
 
@@ -98,7 +98,8 @@ async function fetchAndDisplayMenu() {
 
 <form class="relative bottom-0 left-0 right-0"> ${food['price']}
 <input type="number" min="1" max="99" value="1" class="inline text-right" id='${food['name']}Amount' ></input>
-<button type='button' class= "border border-color-red px-2 inline" onclick = "addItem('${food['name']}')">Add</button> 
+<button type='button' class= "border rounded-md border-color-red px-2 inline" onclick = "addItem('${food['name']}')">Add</button> 
+<div class="m-2 hidden" id="added${food['name']}"> Added!</div>
 </form>
 
                      `
@@ -152,6 +153,25 @@ function addItem(foodAdd) {
 
      console.log(retrievedCart)
      console.log(itemsInCartArray)
+
+let addedID = `added${item}`
+let addedAlert = document.getElementById(addedID)
+
+const hidden = addedAlert.className
+
+let shown = hidden.replace('hidden', 'inline')
+
+addedAlert.className = shown;
+     
+     console.log("added id " + hidden )
+
+setTimeout(removeAlert, 1500);
+     
+function removeAlert() {
+addedAlert.className = hidden
+
+}
+     
 
 
 }

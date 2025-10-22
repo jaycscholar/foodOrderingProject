@@ -4,7 +4,7 @@ const leftColumn = document.getElementById("left-column");
                leftColumn.innerHTML =
                `
 
-<button id="show menu button" class="p-2 rounded block lg:hidden w-full" onclick="hideNavItems()">
+<button id="show menu button" class="p-2 bg-gray-100 rounded block lg:hidden w-full" onclick="hideNavItems()">
                     Show options ---
                </button>  
 
