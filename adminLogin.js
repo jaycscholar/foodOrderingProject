@@ -1,5 +1,7 @@
 addLeftColumn();
 
+let idNumber = 0;
+
 function addLeftColumn() {
      const leftColumn = document.getElementById("left-column");
 
@@ -8,7 +10,7 @@ function addLeftColumn() {
           `
 
          <nav id="navigation" class="p-2 rounded lg:col-span-1 bg-gray-200">
-      <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='index.html'"><b>Back to main Page</b></button>
+      <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick="document.location='index.html'"><b>Back to main Page</b></button>
 
 
 </nav>     
@@ -81,8 +83,9 @@ function adminLoggedIn() {
      async function fetchAndDisplayMenu() {
 
           const theMenu = document.getElementById('adminSection')
+          
           theMenu.innerHTML = `
-     <h2 id="Menu Title" class="lg:col-span-3 text-3xl my-2 py-2"> Items in the Menu</h2>  
+     <h2 id="Menu Title" class="lg:col-span-3 text-3xl my-2 py-2"> Items in the Menu</h2>    
      `
           addItemForm = document.createElement("form")
           addItemForm.className = "grid grid-cols-5 border border-gray-400 rounded p-3"
@@ -108,20 +111,20 @@ function adminLoggedIn() {
                </input>
 
                <label for="inputImage" class="col-span-1 text-right mr-3"> 
-                    Image:
+                    Image URL:
                </label>
                <input type="text" id="inputImage" name="input_image" required class="col-span-2 border border-gray-300 mb-3">
                </input>
 
                <label for="inputPrice" class="col-span-1 text-right mr-3"> 
-                    Price:
+                    Price: $
                </label>
                <input type="text" id="inputPrice" name="input_price" required class="col-span-1 border border-gray-300 mb-3">
                </input>
 
 
                <div class="col-span-4 text-right">
-                    <button type='button' class="border rounded-md border-color-red px-2 inline" onclick = "userAddItem()">Add Item</button> 
+                    <button type='button' class="border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick = "userAddItem()">Add Item</button> 
                </div>
 
 
@@ -139,19 +142,6 @@ function adminLoggedIn() {
 
 
                menu.forEach((food) => {
-                /*     let itemNumberInTray = localStorage.getItem(food['name'])
-                    if (itemNumberInTray === null) {
-                         storedItems = 0;
-                         localStorage.setItem(food['name'], 0)
-                    }
-
-                    let retrievedCart = localStorage.getItem(food['name']);
- */
-                    //console.log("stored " + food['name'] + " " + retrievedCart);
-
-                  insertItem(food['id'], food['name'], food['description'], food['image'],food['price'] ) 
-
-
 
                     const menuItem = document.createElement("div");
                     menuItem.className = `grid grid-cols-5 border border-gray-400 rounded p-6 my-3`
@@ -160,7 +150,7 @@ function adminLoggedIn() {
                     menuItem.innerHTML = ` 
                     
                      <h3 class="text-2xl mb-2 col-span-5">
-                     Name: ${food['name']} 
+                     ${food['id']} : ${food['name']} 
                      </h3>
 
 
@@ -184,20 +174,20 @@ function adminLoggedIn() {
                     <div class="col-span-4"> 
                     ${food['price']}
                     </div>
-
-
-
-                 
               
 
                  <div class="col-span-4 text-right">
-                    <button type='button' class= "border rounded-md border-color-red px-2 inline" onclick = "removeItem('${food['name']}')">Remove Item</button> 
+                    <button type='button' class= "border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick = "removeItem('${food['name']}')">Remove Item</button> 
                  </div>
 
            
                      `
 
+                     idNumber = food['id']
+
                     theMenu.appendChild(menuItem)
+
+
 
                })
 
@@ -216,26 +206,72 @@ function adminLoggedIn() {
 
 
 
-function userAddItem(){ 
-    const form = document.getElementById("addNew");
-    const formData = new FormData(form);
+function userAddItem() {
+idNumber += 1 
 
-    // Get a specific value
-    // const name = formData.get("name"); // "name" refers to the 'name' attribute of the input
+document.getElementById("newItem").className = `
+lg:col-span-3 text-3xl my-2 py-2 `
 
-    // Iterate through all entries
+     const form = document.getElementById("addNew");
+     const formData = new FormData(form);
 
-    for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
+     form.reset();
 
-    }
+           const theMenu = document.getElementById('adminSection') 
 
-    }
+ /*     for (const [key, value] of formData.entries()) {
+          console.log(`${key}: ${value}`);
 
-function insertItem (id, item, description, image, price) {
-
-     console.log(id, item, description, image, price)
-     
+  }
+ */
 
 
+const name = formData.get("input_item_name"); 
+const description = formData.get("input_Description"); 
+const image = formData.get("input_image"); 
+const price = formData.get("input_price"); 
+
+
+
+     console.log(name)
+                    const menuItem = document.createElement("div");
+                    menuItem.className = `grid grid-cols-5 border border-gray-400 rounded p-6 my-3`
+
+                    menuItem.id = formData['input_item_name'];
+                    menuItem.innerHTML = ` 
+                    
+                     <h3 class="text-2xl mb-2 col-span-5">
+                     ${idNumber} : ${name} 
+                     </h3>
+
+
+                    <div class="col-span-1 text-right mr-3"> 
+                    Description:  
+                    </div> 
+                    <div class="col-span-4"> 
+                    ${description}  
+                    </div> 
+
+                    <div class="col-span-1 text-right mr-3"> 
+                    image:  
+                    </div> 
+                    <div class="col-span-4 my-2"> 
+                    <img class="h-30" src=${image}>
+                    </div> 
+
+                    <div class="col-span-1 text-right mr-3"> 
+                    price:  
+                    </div> 
+                    <div class="col-span-4"> 
+                    ${price}  
+                    </div> 
+                    
+`
+
+
+           theMenu.prepend(menuItem)
+
+   
 }
+
+

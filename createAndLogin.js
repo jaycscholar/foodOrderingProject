@@ -9,7 +9,7 @@ let formContentHTML =
                     <input  class="border p-1 rounded" name="email" type="email" id="email" > </input>
                     <label class="block px-1 rounded" for="password" autocomplete="current-password"> Password: </label>
                     <input  class="border p-1 rounded" name="password" type="password" id="password"> </input>
-                    <button id="submitButton" type="button" onclick="runLogin()" class=" block border px-1 rounded mt-1"> 
+                    <button id="submitButton" type="button" onclick="runLogin()" class=" block border px-1 rounded mt-1 cursor-pointer hover:bg-gray-50 hover:text-gray-700"> 
                     submit</button>    
                     </form>
 `;
@@ -33,7 +33,7 @@ function loggedIn(){
      document.getElementById('loginForm').className = `w-full p-2 bg-white rounded mb-2 text-left`
      document.getElementById('loginForm').innerHTML = `
      Logged In as Joe User
-     <button class="border border-gray-300 px-2" onclick="logOut()">Log Out</button>
+     <button class="border border-gray-300 px-2 cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick="logOut()">Log Out</button>
      `
 
 
@@ -41,7 +41,7 @@ function loggedIn(){
 
 function logOut(){
      localStorage.setItem('loggedInJoe', false)
-      
+       
 }
 
 function runLogin() {

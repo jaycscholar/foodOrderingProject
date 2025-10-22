@@ -12,18 +12,18 @@ leftColumn.innerHTML =
                                  
   
                <nav id="navigation" class="p-2 rounded lg:col-span-1 bg-gray-200">
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left hidden"> Create An Account </button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left hidden cursor-pointer hover:bg-gray-50 hover:text-gray-700"> Create An Account </button>
                     
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left" id="loginButton" onclick="addLogin()"> Login </button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700" id="loginButton" onclick="addLogin()"> Login </button>
                     ${formContentHTML}
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left hidden" id="logoutB"> Logout </button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='index.html'"><b>View Menu</b></button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left hidden cursor-pointer hover:bg-gray-50 hover:text-gray-700" id="logoutB"> Logout </button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick="document.location='index.html'"><b>View Menu</b></button>
 
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='viewTray.html'"> View My Tray 
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick="document.location='viewTray.html'"> View My Tray 
                     (<div id="trayQ" class="inline">x</div>) <br> and Place order
                     </button>
-                    <button class="w-full p- bg-white rounded mb-2 text-center" onclick="clearTray()">Clear My Tray</button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='trackOrder.html'"> Track My order</button>
+                    <button class="w-full p- bg-white rounded mb-2 text-center cursor-pointer hover:bg-red-200 hover:text-gray-700" onclick="clearTray()">Clear My Tray</button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700 " onclick="document.location='trackOrder.html'"> Track My order</button>
              
                 </nav> 
  
