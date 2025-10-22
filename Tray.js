@@ -21,12 +21,12 @@ async function fetchAndDisplayTray() {
     menu.forEach((food) => {
       let itemNumberInTray = localStorage.getItem(food["name"]);
 
-
-
       if (itemNumberInTray > 0) {
+
 
 itemsForTracking.push( "<br>" + itemNumberInTray + " " + food["name"] + " " )
 
+console.log("items for fg tracking" + itemsForTracking)   
         const trayItem = document.createElement("div");
         trayItem.className = `col-span-3 p-1 my-3 mx-5`;
 
@@ -70,7 +70,6 @@ Cost ${food["price"]} X ${itemNumberInTray}
     const errorLog = document.createElement("div");
     errorLog.innerHTML = `<p class="text-2xl my-12"> Uh oh, there's a problem </p> <p class="text-2xl mb-20"> ${error} </p>`
     theTray.appendChild(errorLog)
-    //alert("Error fetching user data with async/await:", error);
   }
 
   if (isTrayFull) {
@@ -168,7 +167,7 @@ function getRandomInt(min, max) {
 
 const randomNumber = getRandomInt(9000, 100000);
 
- order = "Order Number: " + randomNumber + " of " + itemsForTracking;
+ order = "Order Number: " + randomNumber + "  " + itemsForTracking;
 
 
   
