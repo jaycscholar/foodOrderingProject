@@ -1,8 +1,8 @@
 const leftColumn = document.getElementById("left-column");
 
 
-               leftColumn.innerHTML =
-               `
+leftColumn.innerHTML =
+     `
 
 <button id="show menu button" class="p-2 bg-gray-100 rounded block lg:hidden w-full" onclick="hideNavItems()">
                     Show options ---
@@ -25,73 +25,73 @@ const leftColumn = document.getElementById("left-column");
                     <button class="w-full p- bg-white rounded mb-2 text-center" onclick="clearTray()">Clear My Tray</button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='trackOrder.html'"> Track My order</button>
              
-                </nav>
+                </nav> 
  
-                 <button class=" px-2 bg-gray-100 rounded my-4 text-left">Admin Login </button>
+                 <button class=" px-2 bg-gray-100 rounded my-4 text-left" onclick="document.location='adminLogin.html'">Admin Login </button>
 
 `
 
-                    ;
+     ;
 
-               //showLogOut(); 
+//showLogOut(); 
 
 
-               function showLogOut() {
-                    const button = document.getElementById('logoutB')
-                    let toHide = button.className
+function showLogOut() {
+     const button = document.getElementById('logoutB')
+     let toHide = button.className
 
-                    let toShow = toHide.replace('hidden', '');
-                    button.className = toShow
+     let toShow = toHide.replace('hidden', '');
+     button.className = toShow
 
-               }
+}
 
-let showingNav = false;   
+let showingNav = false;
 
 
 hideNavItems();
- 
-
-
-               function hideNavItems () {
-
-                    const navigation = document.getElementById('navigation');
- 
-                    if (showingNav === false) {  
-
-                    let toShow = navigation.className;
-                    let toHide = toShow + ' hidden lg:block' 
-                    navigation.className = toHide 
-console.log("items Hidden");
-                    showingNav = true;
- 
-                    } else if (showingNav === true) {
-
-                    let toShow = navigation.className;
-                    let toHide = toShow.replace(' hidden lg:block', '');
-                    navigation.className = toHide 
-console.log("items shown");
-                    showingNav = false;
-                         
-                    }
-
-               } 
 
 
 
-function clearTray () {
-let loggedInState = localStorage.getItem('loggedInJoe') 
-//kind of cheating with this
+function hideNavItems() {
+
+     const navigation = document.getElementById('navigation');
+
+     if (showingNav === false) {
+
+          let toShow = navigation.className;
+          let toHide = toShow + ' hidden lg:block'
+          navigation.className = toHide
+          console.log("items Hidden");
+          showingNav = true;
+
+     } else if (showingNav === true) {
+
+          let toShow = navigation.className;
+          let toHide = toShow.replace(' hidden lg:block', '');
+          navigation.className = toHide
+          console.log("items shown");
+          showingNav = false;
+
+     }
+
+}
+
+
+
+function clearTray() {
+     let loggedInState = localStorage.getItem('loggedInJoe')
+     //kind of cheating with this
 
      storedItems = 0;
-localStorage.clear();
+     localStorage.clear();
 
      updatetrayAmount();
 
-         window.location.reload();
+     window.location.reload();
 
-      itemsInCartArray = []
+     itemsInCartArray = []
 
-      localStorage.setItem('loggedInJoe', loggedInState)    
+     localStorage.setItem('loggedInJoe', loggedInState)
 
 }
 
