@@ -57,20 +57,14 @@ if (email.value === "fake@email.com" ){
     
       localStorage.setItem('loggedInJoe', true)         
       loggedIn()    
-
-
      //alert ("logged in")
-
-
 
      }else if (psw.value !== "cat"){
           alert("check password (hint: its 'cat')")
-
      }
 }
 else if (email.value !== "fake@email.com" ){
 alert("Hint: fake@email.com")
-
 
 }
 
