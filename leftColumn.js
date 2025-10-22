@@ -4,14 +4,14 @@ const leftColumn = document.getElementById("left-column");
                leftColumn.innerHTML =
                `
 
-<button id="show menu button" class="bg-green-200 p-2 rounded block lg:hidden w-full" onclick="hideNavItems()">
+<button id="show menu button" class="p-2 rounded block lg:hidden w-full" onclick="hideNavItems()">
                     Show options ---
                </button>  
 
                
                                  
   
-               <nav id="navigation" class="bg-yellow-200 p-2 rounded lg:col-span-1">
+               <nav id="navigation" class="p-2 rounded lg:col-span-1 bg-gray-200">
                     <button class="w-full p-2 bg-white rounded mb-2 text-left"> Create An Account </button>
                     
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" id="loginButton" onclick="addLogin()"> Login </button>
@@ -23,8 +23,7 @@ const leftColumn = document.getElementById("left-column");
                     (<div id="trayQ" class="inline">x</div>) <br> and Place order
                     </button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="clearTray()"> Clear My Tray</button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left"> Track My order</button>
-                    <button class="w-full p-2 bg-white rounded mb-2 text-left"> About</button>
+                    <button class="w-full p-2 bg-white rounded mb-2 text-left" onclick="document.location='trackOrder.html'"> Track My order</button>
                </nav>
 
 `
@@ -83,6 +82,8 @@ localStorage.clear();
      console.log(localStorage.getItem("itemAmount"));
 
      updatetrayAmount();
+
+         window.location.reload();
 
       itemsInCartArray = []
 

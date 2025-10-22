@@ -8,7 +8,7 @@ if (storedItems === null) { storedItems = 0 }
 
 
 
-let itemsInCartArray = { }
+let itemsInCartArray = {}
 
 
 
@@ -61,24 +61,22 @@ async function fetchAndDisplayMenu() {
           menuItems.forEach((food) => {
 
 
-let itemNumberInTray = localStorage.getItem(food['name']) 
+               let itemNumberInTray = localStorage.getItem(food['name'])
 
-if (itemNumberInTray === null){
-storedItems = 0;
-localStorage.setItem(food['name'], 0)
-}
-
-
+               if (itemNumberInTray === null) {
+                    storedItems = 0;
+                    localStorage.setItem(food['name'], 0)
+               }
 
 
-let retrievedCart = localStorage.getItem(food['name']);
+               let retrievedCart = localStorage.getItem(food['name']);
 
 
-console.log("stored " + food['name'] +" " + retrievedCart);
+               console.log("stored " + food['name'] + " " + retrievedCart);
 
 
                const menuItem = document.createElement("div");
-               menuItem.className = `col-span-3 lg:col-span-1  p-3 bg-blue-100`
+               menuItem.className = `col-span-3 lg:col-span-1  p-3 `
 
                menuItem.id = food['name'];
                menuItem.innerHTML = ` 
@@ -117,7 +115,7 @@ console.log("stored " + food['name'] +" " + retrievedCart);
 }
 
 function addItem(foodAdd) {
- //just for the number in the cart (probably should have just done the array, but I did the number first)
+     //just for the number in the cart (probably should have just done the array, but I did the number first)
      let numberofItems = 0;
      const item = foodAdd;
      const itemAmountID = foodAdd + 'Amount';
@@ -142,7 +140,7 @@ function addItem(foodAdd) {
 
      updatetrayAmount();
 
-let retrievedStoredItem = localStorage.getItem(item)
+     let retrievedStoredItem = localStorage.getItem(item)
 
      itemsInCartArray[item] = +retrievedStoredItem + +numberofItems;
 
@@ -152,8 +150,8 @@ let retrievedStoredItem = localStorage.getItem(item)
 
      let retrievedCart = localStorage.getItem(item)
 
-console.log(retrievedCart)
-console.log(itemsInCartArray)
+     console.log(retrievedCart)
+     console.log(itemsInCartArray)
 
 
 }
@@ -166,6 +164,6 @@ function updatetrayAmount() {
      let trayAmount = document.getElementById("trayQ")
      trayAmount.innerHTML = storedItems;
 
-         
+
 
 }
