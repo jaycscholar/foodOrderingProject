@@ -24,7 +24,7 @@
           </div>
 
           <div id="trackSection" class="col-span-3 ">
-<h1 class="text-xl"> Your order Its in its way! (maybe)</h1>
+
 
           </div>
   
@@ -35,6 +35,44 @@
 
 
      <script> 
+
+
+getOrder();
+
+function getOrder(){
+const trackSect = document.getElementById("trackSection")
+const orderStatus = document.createElement("div")
+
+
+let storedOrder = localStorage.getItem("tracking")
+
+console.log("this " + storedOrder) 
+
+if (storedOrder) { 
+
+
+
+     orderStatus.innerHTML = ` 
+<h1 class="text-xl"> Your order Its in its way!</h1>
+     ${ storedOrder }
+`
+ 
+trackSect.appendChild(orderStatus)   
+console.log("status " + orderStatus.innerHTML  )
+
+} else if (!storedOrder) {
+          orderStatus.innerHTML = ` 
+<h1 class="text-xl"> No orders are on their way </h1> 
+     
+`
+ 
+trackSect.appendChild(orderStatus) 
+
+}
+
+}
+
+
 
      </script>
      <script src="createAndLogin.js"> </script>

@@ -36,7 +36,7 @@ function displayLogin() {
 <input class="border border-gray-400 rounded ml-2" type="password" id="adminPassword" name="admin_password" autocomplete="YumFoodCorporatedPassword" required>
 </div>
 
-<button type="button" class="border rounded my-2 p-1" onclick="logInAdmin()"> Log-in  
+<button type="button" class="border rounded my-2 p-1 cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick="logInAdmin()"> Log-in  
 </button>
 
 </form>
@@ -45,8 +45,7 @@ function displayLogin() {
 
 }
 
-// 
-adminLoggedIn();
+
 
 
 function logInAdmin() {
@@ -58,13 +57,13 @@ function logInAdmin() {
 
 
      if (email.value === "JayAdmin") {
-          if (psw.value === "shoe") {
+          if (psw.value === "rest") {
 
                adminLoggedIn();
-               alert("logged in")
+               //alert("logged in")
 
-          } else if (psw.value !== "shoe") {
-               alert("check password (hint: its 'shoe')")
+          } else if (psw.value !== "rest") { 
+               alert("check password (hint: its 'rest')")
           }
      }
      else if (email.value !== "JayAdmin") {
@@ -74,7 +73,7 @@ function logInAdmin() {
 
 }
 
-
+//so we can test without having to log-in ___ adminLoggedIn()
 
 function adminLoggedIn() {
 
@@ -86,6 +85,14 @@ function adminLoggedIn() {
           
           theMenu.innerHTML = `
      <h2 id="Menu Title" class="lg:col-span-3 text-3xl my-2 py-2"> Items in the Menu</h2>    
+     
+                         <button 
+                    onClick="displayLogin()"
+                    class="p-2 my-3 border rounded border-gray-400 cursor-pointer hover:bg-gray-50 hover:text-gray-700"
+                    >
+               Log Out
+                    </button>
+
      `
           addItemForm = document.createElement("form")
           addItemForm.className = "grid grid-cols-5 border border-gray-400 rounded p-3"
@@ -124,7 +131,8 @@ function adminLoggedIn() {
 
 
                <div class="col-span-4 text-right">
-                    <button type='button' class="border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick = "userAddItem()">Add Item</button> 
+                    <button type='button' 
+                    class="border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick = "userAddItem()">Add Item</button> 
                </div>
 
 
@@ -177,7 +185,7 @@ function adminLoggedIn() {
               
 
                  <div class="col-span-4 text-right">
-                    <button type='button' class= "border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick = "removeItem('${food['name']}')">Remove Item</button> 
+                    <button type='button' class= "border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-red-200 hover:text-gray-700" onClick= "removeItem('${food['name']}')">Remove Item</button> 
                  </div>
 
            
@@ -196,12 +204,30 @@ function adminLoggedIn() {
                alert("Error fetching user data with async/await:", error);
           }
 
+                              const logoutBox = document.createElement("div")
+
+
+                    //logoutBox.className = "p-2 border rounded border-gray-400 cursor-pointer hover:bg-gray-50 hover:text-gray-700"
+
+
+
      }
 
 
 
 }
 
+
+function removeItem (theItem) {
+     const childElement = document.getElementById(theItem); 
+    if (childElement) {
+        childElement.remove();
+        --idNumber;
+    }
+   console.log("item removed " + theItem)
+   document.getElementById('newItem').className = 'lg:col-span-3 text-3xl my-2 py-2 hidden'
+
+} 
 
 
 
@@ -238,6 +264,7 @@ const price = formData.get("input_price");
                     menuItem.className = `grid grid-cols-5 border border-gray-400 rounded p-6 my-3`
 
                     menuItem.id = formData['input_item_name'];
+                    
                     menuItem.innerHTML = ` 
                     
                      <h3 class="text-2xl mb-2 col-span-5">
@@ -265,6 +292,10 @@ const price = formData.get("input_price");
                     <div class="col-span-4"> 
                     ${price}  
                     </div> 
+
+                                     <div class="col-span-4 text-right">
+                    <button type='button' class= "border rounded-md border-color-red px-2 inline cursor-pointer hover:bg-red-200 hover:text-gray-700" onClick= "removeItem(${formData['input_item_name']})">Remove Item</button> 
+                 </div>
                     
 `
 

@@ -1,5 +1,7 @@
 fetchAndDisplayTray();
 
+let order = ' '
+
 async function fetchAndDisplayTray() {
   const theTray = document.getElementById("traySection");
   theTray.innerHTML = `    
@@ -10,6 +12,8 @@ async function fetchAndDisplayTray() {
 
   isTrayFull = false;
 
+  let itemsForTracking = [] 
+
   try {
     const response = await fetch("fullMenu.json");
     const menu = await response.json();
@@ -17,7 +21,12 @@ async function fetchAndDisplayTray() {
     menu.forEach((food) => {
       let itemNumberInTray = localStorage.getItem(food["name"]);
 
+
+
       if (itemNumberInTray > 0) {
+
+itemsForTracking.push( "<br>" + itemNumberInTray + " " + food["name"] + " " )
+
         const trayItem = document.createElement("div");
         trayItem.className = `col-span-3 p-1 my-3 mx-5`;
 
@@ -114,16 +123,22 @@ Cost ${food["price"]} X ${itemNumberInTray}
 `;
     theTray.appendChild(itemInCart);
 
-
+document.getElementById("firstName").value = 'Joe'
+document.getElementById("lastName").value = 'User'
+document.getElementById("address").value = '3333 Blue River'
+document.getElementById("city").value = 'Big Sur' 
+document.getElementById("zip").value = '9000' 
+document.getElementById("state").value = 'California'
+ 
 
   } else if (!isTrayFull) {
     let itemInCart = document.createElement("menuItem");
     itemInCart.innerHTML = `
-<p class="m-2"> Your Tray is empty, Click on <a href="index.html"> View Menu </a> to add items to your Tray.
+<p class="m-2"> Your Tray is empty, Click on <a href="index.html" class="cursor-pointer text-blue-700 hover:text-blue-200 "> View Menu </a> to add items to your Tray.
 </p>
 
 <p class="m-2"> 
-Or click on <a href="trackOrder.html">Track My Order<a> to see your order status
+Or click on <a href="trackOrder.html" class="cursor-pointer text-blue-700 hover:text-blue-200 ">Track My Order<a> to see your order status
 </p>
 
 `;
@@ -133,18 +148,29 @@ Or click on <a href="trackOrder.html">Track My Order<a> to see your order status
 
 
   }
+ 
 
 
-  if (logInJoe === 'true'){
-    
-document.getElementById("firstName").value = 'Joe'
-document.getElementById("lastName").value = 'User'
-document.getElementById("address").value = '3333 Blue River'
-document.getElementById("city").value = 'Big Sur' 
-document.getElementById("zip").value = '9000' 
-document.getElementById("state").value = 'California'
+  if (logInJoe === 'true' || isTrayFull === 'true'){
 
-} 
+   
+
+
+
+}  
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min); // Ensure min is an integer
+  max = Math.floor(max); // Ensure max is an integer
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+const randomNumber = getRandomInt(9000, 100000);
+
+ order = "Order Number: " + randomNumber + " of " + itemsForTracking;
+
+
   
 }
 
@@ -167,8 +193,17 @@ function placeOrder() {
 
   console.log(customerInfo)
 
+clearTray();
+
+localStorage.setItem("tracking", order) 
+let itemsIntracking = localStorage.getItem("tracking");
+console.log("items being tracked" + itemsIntracking); 
+
+
  alert("Your Order has been placed");
- clearTray();
+
+
+
 }
 
 

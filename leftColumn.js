@@ -80,6 +80,7 @@ function hideNavItems() {
 
 function clearTray() {
      let loggedInState = localStorage.getItem('loggedInJoe')
+     let storedOrder = localStorage.getItem("tracking")
      //kind of cheating with this
 
      storedItems = 0;
@@ -92,6 +93,7 @@ function clearTray() {
      itemsInCartArray = []
 
      localStorage.setItem('loggedInJoe', loggedInState)
+     localStorage.setItem('tracking', storedOrder)
 
 }
 
