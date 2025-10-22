@@ -86,6 +86,7 @@ function adminLoggedIn() {
      `
           addItemForm = document.createElement("form")
           addItemForm.className = "grid grid-cols-5 border border-gray-400 rounded p-3"
+          addItemForm.id = "addNew"
           addItemForm.innerHTML =
                `
                <h3 class="text-2xl mb-2 col-span-5 text-left pl-20">
@@ -109,17 +110,25 @@ function adminLoggedIn() {
                <label for="inputImage" class="col-span-1 text-right mr-3"> 
                     Image:
                </label>
-               <input type="text" id="inputImage" name="input_image" required class="col-span-4 border border-gray-300 mb-3">
+               <input type="text" id="inputImage" name="input_image" required class="col-span-2 border border-gray-300 mb-3">
+               </input>
+
+               <label for="inputPrice" class="col-span-1 text-right mr-3"> 
+                    Price:
+               </label>
+               <input type="text" id="inputPrice" name="input_price" required class="col-span-1 border border-gray-300 mb-3">
                </input>
 
 
                <div class="col-span-4 text-right">
-                    <button type='button' class= "border rounded-md border-color-red px-2 inline" onclick="additem()">Add Item</button> 
+                    <button type='button' class="border rounded-md border-color-red px-2 inline" onclick = "userAddItem()">Add Item</button> 
                </div>
 
 
 
 `
+
+
 
           theMenu.appendChild(addItemForm)
 
@@ -130,15 +139,19 @@ function adminLoggedIn() {
 
 
                menu.forEach((food) => {
-                    let itemNumberInTray = localStorage.getItem(food['name'])
+                /*     let itemNumberInTray = localStorage.getItem(food['name'])
                     if (itemNumberInTray === null) {
                          storedItems = 0;
                          localStorage.setItem(food['name'], 0)
                     }
 
                     let retrievedCart = localStorage.getItem(food['name']);
-
+ */
                     //console.log("stored " + food['name'] + " " + retrievedCart);
+
+                  insertItem(food['id'], food['name'], food['description'], food['image'],food['price'] ) 
+
+
 
                     const menuItem = document.createElement("div");
                     menuItem.className = `grid grid-cols-5 border border-gray-400 rounded p-6 my-3`
@@ -195,6 +208,34 @@ function adminLoggedIn() {
 
      }
 
+
+
+}
+
+
+
+
+
+function userAddItem(){ 
+    const form = document.getElementById("addNew");
+    const formData = new FormData(form);
+
+    // Get a specific value
+    // const name = formData.get("name"); // "name" refers to the 'name' attribute of the input
+
+    // Iterate through all entries
+
+    for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+
+    }
+
+    }
+
+function insertItem (id, item, description, image, price) {
+
+     console.log(id, item, description, image, price)
+     
 
 
 }
