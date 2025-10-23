@@ -22,7 +22,7 @@ leftColumn.innerHTML =
                     <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700" onclick="document.location='viewTray.html'"> View My Tray 
                     (<div id="trayQ" class="inline">x</div>) <br> and Place order
                     </button>
-                    <button class="w-full p- bg-white rounded mb-2 text-center cursor-pointer hover:bg-red-200 hover:text-gray-700" onclick="clearTray()">Clear My Tray</button>
+                    <button class="w-full p- bg-white rounded mb-2 text-left cursor-pointer hover:bg-red-200 hover:text-gray-700" onclick="clearTray()">Clear My Tray</button>
                     <button class="w-full p-2 bg-white rounded mb-2 text-left cursor-pointer hover:bg-gray-50 hover:text-gray-700 " onclick="document.location='trackOrder.html'"> Track My order</button>
              
                 </nav> 

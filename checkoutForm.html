@@ -1,0 +1,102 @@
+
+<div id="AddressAndPayForm">    
+<form class="mt-10 grid lg:grid-cols-3 w-4/5">
+<h3 class="text-xl lg:col-span-3"> Enter Your Info: </h3>
+
+<div class="p-2 "> 
+<label for="firstName" class="ml-2 block">First Name:</label>
+<input class="border border-gray-400 rounded pl-1" type="text" id="firstName" name="first_name" autocomplete="firstName" required>
+</div>
+
+<div class="p-2 "> 
+<label for="lastName" class="ml-2 block">Last Name:</label>
+<input class="border border-gray-400 rounded pl-1" type="text" id="lastName" name="last_name" autocomplete="lastName" required>
+</div>
+
+<div class="p-2 "> 
+<label for="address" class="ml-2  block">Address:</label>
+<input class="border border-gray-400 rounded pl-1" class="border border-gray-400 rounded ml-2" type="text" id="address" name="address" autocomplete="address" required>
+</div>
+
+<div class="p-2"> 
+<label for="city" class="ml-2 block">City:</label>
+<input class="border border-gray-400 rounded pl-1" type="text" id="city" name="city" autocomplete="city" required>
+</div>
+
+<div class="p-2 "> 
+<label for="zip" class="ml-2 block">Zip Code:</label>
+<input class="border border-gray-400 rounded pl-1" type="text" id="zip" name="zip" autocomplete="zip_Code" required>
+</div>
+
+<div class="p-2 "> 
+<label for="state" class="ml-2 block">State:</label>
+<input class="border border-gray-400 rounded pl-1" type="text" id="state" name="state" autocomplete="state" required>
+</div>
+
+<div class="">
+</div>
+
+
+<div class="my-1 ml-2 lg:col-span-2 ">   
+<div class="p-3 border rounded border-gray-400 ">  
+<h2 class="mb-3"> 
+Payment
+</h2>
+
+<p> 
+<label for="nameOnCard" class="ml-2 block ">Name on Card</label>
+<input class="border border-gray-400 rounded w-full pl-1" type="text" id="nameOnCard" name="name_on_card" autocomplete="First and Last Name" required>
+</p>
+
+<p> 
+<label for="cardNumber" class="ml-2 block">Card Number</label> 
+<input class="border border-gray-400 rounded w-full pl-2" type="tel" id="cardNumber" name="card_number"  
+  inputmode="numeric" autocomplete="cc-number"  maxlength="19"
+  placeholder=""  required> 
+</p>
+
+<section class="lg: grid lg:grid-cols-3"> 
+
+<p class=""> 
+<label for="expDate" class="ml-2 block">Expiration Date </label> 
+<input class="border border-gray-400 rounded  pl-2" type="month" min="2025-09" id="expDate" name="expiration_date"  
+  autocomplete="expiration_Date"  maxlength="19" 
+  placeholder=""  required> 
+</p>
+
+<p class="lg:ml-15"> 
+<label for="CVV" class="ml-2 block">CVV</label> 
+<input class="border border-gray-400 rounded pl-2 w-12" type="tel" id="CVV" name="CVV"  
+  autocomplete="CVV"  maxlength="3" 
+  placeholder=""  required> 
+</p>
+
+<p class=""> 
+<label for="zipCode" class="ml-2 block">Zip Code</label> 
+<input class="border border-gray-400 rounded pl-2 w-20" type="tel" id="zipCode" name="zip_Code"  
+  autocomplete=""  maxlength="5" 
+  placeholder=""  required> 
+</p>
+
+
+</section>
+
+
+</div>
+</div> 
+
+
+<div class="">
+</div>
+<div class="">
+</div>
+
+<div class="">
+     <button type="button" class="border rounded my-2 p-1" onclick="placeOrder()"> Place Order  
+</button>
+
+</div>
+
+</form>
+
+</div>  
