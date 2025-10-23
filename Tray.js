@@ -190,14 +190,14 @@ function placeOrder() {
 
   console.log(customerInfo)
 
- // clearTray();
+  clearTray();
 
   localStorage.setItem("tracking", order)
   let itemsIntracking = localStorage.getItem("tracking");
   console.log("items being tracked" + itemsIntracking);
 
  
- // alert("Your Order has been placed");
+  alert("Your Order has been placed");
 
 
 
